@@ -1,0 +1,63 @@
+# Configuração da Campanha de Avisos. Copie para config.toml e ajuste.
+# Nenhum segredo fica aqui: o segredo do aplicativo de e-mail vai para o cofre de
+# credenciais do Windows, gravado pela tela Ajustes.
+#
+# O que for alterado pela janela (tela Ajustes) é salvo em dados/ajustes.json e
+# vale por cima deste arquivo.
+
+[campanha]
+# Nome exibido no topo do e-mail enviado aos clientes.
+empresa = "Sua Empresa"
+# E-mails destes domínios no cadastro do cliente são recusados (são da própria
+# empresa: o aviso iria para um colaborador, não para o cliente).
+dominios_internos = ["suaempresa.exemplo.com"]
+banco = "dados/campanha.sqlite3"
+mensagens = "mensagens"
+saida = "saida"
+# Um CPF, celular ou e-mail por linha. Vale na hora, com a campanha rodando.
+nao_enviar = "nao_enviar.txt"
+# Criar este arquivo (PARAR-whatsapp, PARAR-email) faz a execução parar com segurança.
+parar = "PARAR"
+# Contatos da equipe para o ensaio (colunas nome;celular;email).
+teste_interno = "teste_interno.csv"
+# Total vencido abaixo disto fica retido. Ajustável na tela Ajustes.
+valor_minimo = 1.00
+# Até que vencimento a campanha cobra (coluna Maior Atraso). "automatico": até o
+# dia 15 nada do mês atual entra; do dia 16 em diante entra o que venceu do dia 1
+# ao dia 15. Para fixar uma data, use o formato "2026-10-31".
+vencido_ate = "automatico"
+
+[whatsapp]
+# contagotas: poucas conversas novas por dia, espalhadas pelo horário (recomendado).
+# prudente (~39/h) | padrao (~82/h) | acelerado (~175/h): ritmos altos aumentam
+# muito o risco de restrição do número. Em teste real, o "padrao" teve a linha
+# restringida por 24 h depois de 50 envios em uma hora.
+ritmo = "contagotas"
+# Conversas novas por dia no contagotas. Ajustável na tela Ajustes.
+conversas_dia = 40
+sessao = "sessao_whatsapp"
+janela_inicio = "08:00"
+janela_fim = "19:00"
+# 0 = segunda ... 6 = domingo
+dias = [0, 1, 2, 3, 4, 5]
+limite_diario = 800
+
+[email]
+# Aplicativo registrado no Microsoft Entra ID, com a permissão de aplicativo
+# Mail.Send (consentimento do administrador) e uma ApplicationAccessPolicy no
+# Exchange Online limitando o app à caixa remetente. Também podem ser preenchidos
+# na tela Ajustes.
+tenant_id = ""
+client_id = ""
+# Caixa que envia (precisa existir no tenant).
+remetente = "noreply@exemplo.com"
+# Obrigatório: para onde vão as respostas dos clientes.
+responder_para = "contato@exemplo.com"
+janela_inicio = "08:00"
+janela_fim = "19:00"
+dias = [0, 1, 2, 3, 4, 5]
+limite_diario = 9000
+
+[sms]
+# Ainda sem integração. Vazio = canal sem gateway definido, e o envio recusa.
+gateway = ""

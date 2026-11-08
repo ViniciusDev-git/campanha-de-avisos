@@ -1,0 +1,9 @@
+Prezado(a) {{nome}},
+
+Até o momento, não identificamos o pagamento do título vencido junto à Sua Empresa.
+
+{{pendencias}}
+
+Pedimos a gentileza de entrar em contato com nosso atendimento pelo telefone (11) 90000-0000 ou pelo e-mail contato@exemplo.com para obter informações sobre os valores pendentes e as opções de pagamento.
+
+Se o pagamento já foi feito, por favor desconsidere esta mensagem.

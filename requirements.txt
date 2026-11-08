@@ -1,0 +1,7 @@
+# Dependências do programa (Python 3.11+; testado com 3.12)
+openpyxl==3.1.5
+httpx==0.28.1
+msal==1.39.0
+keyring==25.7.0
+playwright==1.64.1
+pywebview==6.2.1

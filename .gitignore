@@ -1,0 +1,28 @@
+# Configuração local (copie config.example.toml para config.toml)
+config.toml
+
+# Dados da campanha: nunca versionar
+dados/
+saida/
+sessao_whatsapp/
+nao_enviar.txt
+teste_interno.csv
+PARAR*
+*.xlsx
+*.xls
+*.csv
+*.db
+*.sqlite
+*.sqlite3
+*.log
+~$*
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build
+dist/
+build/

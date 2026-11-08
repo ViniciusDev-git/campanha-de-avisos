@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Campanha de Avisos</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-tela="planilha">
+<!--
+THESIS: a campanha é um painel de lâmpadas, um contato por lâmpada; recusa o painel de indicadores com cartões e gráficos.
+OWN-WORLD: esmalte fosco claro e baquelite escura, lâmpada opalina, âmbar só no agora; uma família tipográfica, fios finos, botões de baquelite.
+STORY: quem opera vê o tamanho da campanha, prepara em quatro etapas e acompanha cada contato acender, confiando que a ferramenta para sozinha.
+FIRST VIEWPORT: etapas à esquerda, uma única tarefa ao centro com a ação no pé, painel escuro de lâmpadas à direita; no disparo o painel cresce.
+FORM: Mesa de Lâmpadas, escolhida entre três protótipos.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<div class="app">
+  <aside class="lado">
+    <img class="logo" src="logo.svg" alt="Campanha de Avisos">
+    <nav aria-label="Etapas da campanha">
+      <ol class="passos" id="passos"></ol>
+    </nav>
+    <nav class="extras" aria-label="Outras áreas">
+      <button data-ir="contatos">Contatos</button>
+      <button data-ir="ajustes">Ajustes</button>
+    </nav>
+  </aside>
+
+  <main id="tela" tabindex="-1"></main>
+
+  <aside class="painel" aria-label="Painel da campanha">
+    <header class="painel-topo">
+      <b id="painel-titulo">Painel da campanha</b>
+      <div class="canais" id="painel-canais" role="group" aria-label="Canal exibido no painel">
+        <button data-painel="whatsapp" aria-pressed="true">WhatsApp</button>
+        <button data-painel="email" aria-pressed="false">E-mail</button>
+      </div>
+    </header>
+    <div class="previas" id="previas" hidden></div>
+    <div class="campo" id="campo">
+      <canvas id="lampadas" role="img" aria-label="Painel de contatos"></canvas>
+      <p class="vazio" id="painel-vazio" hidden><span>As lâmpadas aparecem quando a planilha for lida.</span></p>
+    </div>
+    <p class="leitura" id="leitura" aria-live="polite"></p>
+    <footer class="legenda" id="legenda">
+      <span><i class="l-aceso"></i>Avisado</span>
+      <span><i class="l-fila"></i>Na fila</span>
+      <span><i class="l-sem"></i>Sem WhatsApp</span>
+      <span><i class="l-alerta"></i>Conferir</span>
+    </footer>
+  </aside>
+</div>
+<div class="sr" id="anuncio" aria-live="assertive"></div>
+<script src="app.js"></script>
+</body>
+</html>
